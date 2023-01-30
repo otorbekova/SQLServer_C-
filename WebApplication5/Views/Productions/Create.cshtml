@@ -1,0 +1,49 @@
+﻿@model WebApplication5.Models.Production
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Создать</h1>
+
+<h4>Производство</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Продукция" class="control-label"></label>
+                <select asp-for="Продукция" class ="form-control" asp-items="ViewBag.Продукция"></select>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Количество" class="control-label"></label>
+                <input asp-for="Количество" class="form-control" />
+                <span asp-validation-for="Количество" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Дата" class="control-label"></label>
+                <input asp-for="Дата" class="form-control" />
+                <span asp-validation-for="Дата" class="text-danger"></span>
+            </div>
+        <div class="form-group">
+                <label asp-for="Сотрудник" class="control-label"></label>
+                <select asp-for="Сотрудник" class ="form-control" asp-items="ViewBag.Сотрудник"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,54 @@
+﻿@model WebApplication5.Models.PurchaseOfRawMaterial
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>PurchaseOfRawMaterial</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Сырьё" class="control-label"></label>
+                <select asp-for="Сырьё" class="form-control" asp-items="ViewBag.Сырьё"></select>
+                <span asp-validation-for="Сырьё" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Количество" class="control-label"></label>
+                <input asp-for="Количество" class="form-control" />
+                <span asp-validation-for="Количество" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Сумма" class="control-label"></label>
+                <input asp-for="Сумма" class="form-control" />
+                <span asp-validation-for="Сумма" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Дата" class="control-label"></label>
+                <input asp-for="Дата" class="form-control" />
+                <span asp-validation-for="Дата" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Сотрудник" class="control-label"></label>
+                <select asp-for="Сотрудник" class="form-control" asp-items="ViewBag.Сотрудник"></select>
+                <span asp-validation-for="Сотрудник" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

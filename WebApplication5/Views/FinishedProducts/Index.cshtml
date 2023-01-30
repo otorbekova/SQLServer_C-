@@ -1,0 +1,55 @@
+﻿@model IEnumerable<WebApplication5.Models.FinishedProduct>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Готовая продукция</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Наименование)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ЕдиницаИзмерения_)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Сумма)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Количество)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Наименование)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ЕдиницаИзмерения_.Наименование)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Сумма)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Количество)
+            </td>
+           
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Подробнее</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

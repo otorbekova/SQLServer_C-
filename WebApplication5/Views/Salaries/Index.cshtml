@@ -1,0 +1,122 @@
+﻿@model IEnumerable<WebApplication5.Models.Salary>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+ <form asp-action="Index" class="row g-3">
+
+        @using (Html.BeginForm())
+{
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col-md-2">
+                @*<label asp-for="Month" class="form-label"></label>*@
+                <select name="getMonth" class="form-select">
+                    @{
+                        DateTime month = DateTime.Now;
+                        foreach (var item in ViewBag.Month)
+                        {
+                            if (month.Month.ToString() == item.Value)
+                            {
+                                <option value="@item.Value" selected>@item.Text</option>
+                            }
+                            else
+                            {
+                                <option value="@item.Value">@item.Text</option>
+                            }
+                        }
+                    }
+                </select>
+            </div>
+            <div class="col-md-2">
+                <input name="getYear" class="form-control" value="@DateTime.Now.Year"/>
+                <span class="text-danger"></span>
+            </div>
+            <div class="col-md-2">
+                <input type="submit" value="Firlter" class="btn btn-primary"/>
+            </div>
+            }
+        </form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Месяц)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Сотрудник)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Зарплата)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Производство)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Закупка)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Продажа)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ОбщееКоличество)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Оклад)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Бонус)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Сотрудник_)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Месяц)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Сотрудник)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Зарплата)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Производство)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Закупка)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Продажа)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ОбщееКоличество)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Оклад)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Бонус)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Сотрудник_.Id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdЗарплата">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdЗарплата">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdЗарплата">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

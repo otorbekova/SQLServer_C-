@@ -1,0 +1,46 @@
+﻿@model WebApplication5.Models.Budget
+
+@{
+    ViewData["Title"] = "Изиенить";
+}
+
+<h1>Изиенить</h1>
+
+<h4>Budget</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="СуммаБюджета" class="control-label"></label>
+                <input asp-for="СуммаБюджета" class="form-control" />
+                <span asp-validation-for="СуммаБюджета" class="text-danger"></span>
+            </div>
+
+              <div class="form-group">
+                <label asp-for="Бонус" class="control-label"></label>
+                <input asp-for="Бонус" class="form-control" />
+                <span asp-validation-for="Бонус" class="text-danger"></span>
+            </div>
+
+              <div class="form-group">
+                <label asp-for="Процент" class="control-label"></label>
+                <input asp-for="Процент" class="form-control" />
+                <span asp-validation-for="Процент" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

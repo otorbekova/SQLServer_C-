@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebApplication5.Models.Budget>
+
+@{
+    ViewData["Title"] = "";
+}
+
+<h1>Бюджет</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.СуммаБюджета)
+            </th>
+              <th>
+                @Html.DisplayNameFor(model => model.Бонус)
+            </th>
+              <th>
+                @Html.DisplayNameFor(model => model.Процент)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.СуммаБюджета)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Бонус)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Процент)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Подробнее</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

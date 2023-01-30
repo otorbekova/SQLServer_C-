@@ -1,0 +1,49 @@
+﻿@model WebApplication5.Models.FinishedProduct
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Изменить</h1>
+
+<h4>Готовая продкция</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Наименование" class="control-label"></label>
+                <input asp-for="Наименование" class="form-control" />
+                <span asp-validation-for="Наименование" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ЕдиницаИзмерения" class="control-label"></label>
+                <select asp-for="ЕдиницаИзмерения" class="form-control" asp-items="ViewBag.ЕдиницаИзмерения"></select>
+                <span asp-validation-for="ЕдиницаИзмерения" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Сумма" class="control-label"></label>
+                <input asp-for="Сумма" class="form-control" />
+                <span asp-validation-for="Сумма" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Количество" class="control-label"></label>
+                <input asp-for="Количество" class="form-control" />
+                <span asp-validation-for="Количество" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

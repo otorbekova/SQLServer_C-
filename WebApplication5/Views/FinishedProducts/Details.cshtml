@@ -1,0 +1,43 @@
+﻿@model WebApplication5.Models.FinishedProduct
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Подробнее</h1>
+
+<div>
+    <h4>Готовая продукция</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Наименование)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Наименование)
+        </dd>
+            <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ЕдиницаИзмерения_)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ЕдиницаИзмерения_.Наименование)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Сумма)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Сумма)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Количество)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Количество)
+        </dd>
+    
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

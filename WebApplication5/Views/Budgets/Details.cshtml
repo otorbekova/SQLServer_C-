@@ -1,0 +1,38 @@
+﻿@model WebApplication5.Models.Budget
+
+@{
+    ViewData["Title"] = "Подробнее";
+}
+
+<h1>Подробнее</h1>
+
+<div>
+    <h4>Budget</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.СуммаБюджета)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.СуммаБюджета)
+        </dd>
+
+         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Бонус)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Бонус)
+        </dd>
+
+         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Процент)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Процент)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
